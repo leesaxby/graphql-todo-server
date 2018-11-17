@@ -1,0 +1,67 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true,
+        "amd": true
+    },
+    "extends": ["airbnb"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "rules": {
+        "max-len": ["error", {
+            "ignoreComments": true,
+            "code": 150
+        }],
+        "jsx-a11y/anchor-is-valid": [0],
+        "no-mixed-spaces-and-tabs": [
+            0,
+            "smart-tabs"
+        ],
+        "no-unused-vars": [
+            "error"
+        ],
+        "indent": [2, 4, {
+            "SwitchCase": 1
+        }],
+        "prefer-destructuring": [2, {
+            "array": true,
+            "object": true
+        }],
+        "func-style": [2, "expression"],
+        "function-paren-newline": [2, "consistent"],
+        "no-confusing-arrow": [0],
+        "camelcase": [0],
+        "global-require": [0],
+        "import/no-unresolved": [0],
+        "import/extensions": [0],
+        "import/no-named-as-default": [0],
+        "import/no-extraneous-dependencies": ["error", {
+            "devDependencies": true,
+            "optionalDependencies": false,
+            "peerDependencies": false
+        }],
+        "no-underscore-dangle": [2, {
+            "allow": ["__id"]
+        }]
+    },
+    "globals": {
+        "_": true,
+        "module": true,
+        "__dirname": true,
+        "jasmine": true
+    },
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "./webpack/webpack.common.js"
+            }
+        }
+    }
+}
