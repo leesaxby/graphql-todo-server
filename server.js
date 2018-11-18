@@ -5,6 +5,7 @@ import schemaStr from './graphql/schema';
 import {
     todo,
     todos,
+    toggleTodo,
 } from './graphql/resolvers';
 
 const schema = buildSchema(schemaStr);
@@ -12,6 +13,7 @@ const schema = buildSchema(schemaStr);
 const rootValue = {
     todo,
     todos,
+    toggleTodo,
 };
 
 const app = express();
