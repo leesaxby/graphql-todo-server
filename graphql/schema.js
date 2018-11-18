@@ -5,6 +5,11 @@ type Query {
 },
 type Mutation {
     toggleTodo(id: Int!): Todo
+    addTodo(input: todoInput!): Todo
+}
+input todoInput {
+    title: String!
+    checked: Boolean!
 }
 type Todo {
     id: Int
