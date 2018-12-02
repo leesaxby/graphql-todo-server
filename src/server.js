@@ -1,28 +1,27 @@
 import express from 'express';
 import expressGraphql from 'express-graphql';
 import { buildSchema } from 'graphql';
-import schemaStr from './graphql/schema';
+import db from './db';
+import schemaStr from './schema';
+import 'babel-polyfill';
+
 import {
     todo,
     todos,
-    toggleTodo,
-    addTodo,
-} from './graphql/resolvers';
+} from './resolvers';
 
+const app = express();
 const schema = buildSchema(schemaStr);
-
 const rootValue = {
     todo,
     todos,
-    toggleTodo,
-    addTodo,
 };
 
-const app = express();
 app.use('/graphql', expressGraphql({
     schema,
     rootValue,
     graphiql: true
 }));
 
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.listen(4000, () => console.log('Server running at localhost:4000/graphql'));

@@ -1,8 +1,13 @@
 export default `
 type Query {
-    todo(id: Int!): Todo
+    todo(_id: String!): Todo
     todos: [Todo]
 },
+type Todo {
+    _id: ID
+    title: String
+    checked: Boolean
+}
 type Mutation {
     toggleTodo(id: Int!): Todo
     addTodo(input: todoInput!): Todo
@@ -10,10 +15,5 @@ type Mutation {
 input todoInput {
     title: String!
     checked: Boolean!
-}
-type Todo {
-    id: Int
-    title: String
-    checked: Boolean
 }
 `;
